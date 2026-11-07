@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Terms of Service for Geeks Hub — cybersecurity news, technology tips, tricks, and educational video content, and the Geeks Hub application that publishes it." />
+    <link rel="icon" href="data:," />
+    <title>Geeks Hub Terms of Service</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #f4f7f4;
+        --surface: #ffffff;
+        --surface-2: #edf3ee;
+        --ink: #15211b;
+        --ink-soft: #43554b;
+        --ink-faint: #6b7f73;
+        --line: #d8e2da;
+        --green: #0a7a43;
+        --green-bright: #0a7a43;
+        --blue: #0b62b8;
+        --code-bg: #0d1512;
+        --code-ink: #b9f5cf;
+        --shadow: 0 1px 2px rgba(21, 33, 27, .05), 0 12px 32px -16px rgba(21, 33, 27, .18);
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #070b09;
+          --surface: #0d130f;
+          --surface-2: #121a15;
+          --ink: #e7f0ea;
+          --ink-soft: #b3c4b9;
+          --ink-faint: #82968a;
+          --line: #223028;
+          --green: #3ddc84;
+          --green-bright: #3ddc84;
+          --blue: #6cc4ff;
+          --code-bg: #05080a;
+          --code-ink: #b9f5cf;
+          --shadow: 0 1px 2px rgba(0, 0, 0, .4), 0 12px 32px -16px rgba(0, 0, 0, .6);
+        }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        font-size: 16.5px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+      ::selection { background: var(--green); color: #fff; }
+      @media (prefers-color-scheme: dark) {
+        ::selection { background: var(--green); color: #06110b; }
+      }
+      a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; overflow-wrap: anywhere; }
+      a:hover { text-decoration-thickness: 2px; }
+      :focus-visible { outline: 2px solid var(--green); outline-offset: 3px; border-radius: 4px; }
+
+      .wrap { max-width: 780px; margin: 0 auto; padding: 0 20px 72px; }
+
+      /* ---------- Masthead ---------- */
+      .masthead { padding: 52px 0 8px; }
+      .brandline {
+        display: flex; align-items: center; gap: 10px;
+        font-family: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
+        color: var(--ink-faint); margin: 0 0 18px;
+      }
+      .brandline .dot {
+        width: 9px; height: 9px; border-radius: 50%;
+        background: var(--green-bright); flex: none;
+        box-shadow: 0 0 0 4px color-mix(in srgb, var(--green-bright) 18%, transparent);
+      }
+      .brandline strong { color: var(--ink); font-weight: 500; }
+      h1 {
+        font-size: clamp(34px, 6vw, 46px); line-height: 1.08;
+        letter-spacing: -.015em; font-weight: 700; margin: 0 0 14px;
+      }
+      .lede { font-size: 18px; color: var(--ink-soft); margin: 0 0 26px; max-width: 62ch; }
+      .meta {
+        display: flex; flex-wrap: wrap; gap: 8px 28px;
+        border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+        padding: 14px 0; margin: 0 0 30px;
+        font-size: 14px; color: var(--ink-soft);
+      }
+      .meta dt {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase;
+        color: var(--ink-faint); margin-bottom: 2px;
+      }
+      .meta dd { margin: 0; font-weight: 500; color: var(--ink); }
+
+      /* ---------- Summary strip ---------- */
+      .summary {
+        background: var(--code-bg); color: #d7e6dc; border-radius: 10px;
+        padding: 22px 24px; margin: 0 0 34px;
+        font-size: 15px; line-height: 1.6;
+      }
+      .summary .s-head {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+        color: var(--code-ink); margin: 0 0 10px;
+      }
+      .summary p { margin: 0; }
+      .summary p + p { margin-top: 10px; }
+      .summary strong { color: #fff; }
+
+      /* ---------- TOC ---------- */
+      nav.toc {
+        background: var(--surface); border: 1px solid var(--line);
+        border-radius: 10px; padding: 20px 24px; margin: 0 0 40px;
+        box-shadow: var(--shadow);
+      }
+      nav.toc h2 {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 12px; letter-spacing: .14em; text-transform: uppercase;
+        color: var(--ink-faint); font-weight: 500; margin: 0 0 12px;
+      }
+      nav.toc ol {
+        margin: 0; padding: 0; list-style: none;
+        display: grid; grid-template-columns: 1fr 1fr; gap: 4px 28px;
+      }
+      @media (max-width: 620px) { nav.toc ol { grid-template-columns: 1fr; } }
+      nav.toc a {
+        display: flex; gap: 10px; padding: 5px 0; color: var(--ink);
+        text-decoration: none; font-size: 15px; align-items: baseline;
+      }
+      nav.toc a:hover { color: var(--green); }
+      nav.toc .n {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 12.5px; color: var(--green); flex: none; min-width: 22px;
+      }
+
+      /* ---------- Sections ---------- */
+      section { padding: 26px 0 6px; border-top: 1px solid var(--line); scroll-margin-top: 20px; }
+      section:first-of-type { border-top: none; }
+      section h2 {
+        display: flex; gap: 14px; align-items: baseline;
+        font-size: 23px; line-height: 1.25; letter-spacing: -.01em;
+        font-weight: 600; margin: 0 0 14px;
+      }
+      section h2 .n {
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 14px; font-weight: 500; color: var(--green); flex: none;
+      }
+      section p { margin: 0 0 14px; color: var(--ink-soft); }
+      section p strong, section li strong { color: var(--ink); }
+      section ul { margin: 0 0 16px; padding-left: 22px; color: var(--ink-soft); }
+      section li { margin-bottom: 8px; }
+      section li::marker { color: var(--green); }
+      .callout {
+        background: var(--surface-2); border-radius: 8px;
+        padding: 16px 20px; margin: 0 0 16px; font-size: 15px;
+      }
+      .callout p { margin: 0; }
+      .callout p + p { margin-top: 8px; }
+
+      /* ---------- Footer ---------- */
+      footer {
+        margin-top: 48px; border-top: 1px solid var(--line); padding-top: 26px;
+        font-size: 14.5px; color: var(--ink-soft);
+      }
+      footer .channels { display: flex; flex-wrap: wrap; gap: 10px; margin: 14px 0 20px; }
+      footer .channels a {
+        border: 1px solid var(--line); background: var(--surface);
+        border-radius: 999px; padding: 7px 16px; text-decoration: none;
+        color: var(--ink); font-size: 14px; font-weight: 500;
+      }
+      footer .channels a:hover { border-color: var(--green); color: var(--green); }
+      footer .fine { color: var(--ink-faint); font-size: 13px; margin: 0; }
+
+      @media print {
+        body { background: #fff; color: #000; font-size: 12.5pt; }
+        .summary { background: #fff; color: #000; border: 1px solid #999; }
+        .summary .s-head, .summary strong { color: #000; }
+        nav.toc, footer .channels { display: none; }
+        section { break-inside: avoid; }
+        a { color: #000; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+
+      <header class="masthead">
+        <p class="brandline"><span class="dot" aria-hidden="true"></span><strong>Geeks Hub</strong><span>Legal</span></p>
+        <h1>Terms of Service</h1>
+        <p class="lede">These terms govern your use of Geeks Hub — our cybersecurity and technology content, and the Geeks Hub application that produces and publishes it. Please read them before using the service.</p>
+        <dl class="meta">
+          <div><dt>Effective date</dt><dd>November 6, 2026</dd></div>
+          <div><dt>Last updated</dt><dd>November 6, 2026</dd></div>
+          <div><dt>Operator</dt><dd>Geeks Hub</dd></div>
+          <div><dt>Applies to</dt><dd>Geeks Hub content, pages, channels &amp; app</dd></div>
+        </dl>
+      </header>
+
+      <div class="summary">
+        <p class="s-head">The short version</p>
+        <p>Geeks Hub publishes <strong>educational</strong> cybersecurity news, tips, tricks, and technology content. Everything we show — including coverage of vulnerabilities and hacking techniques — is for <strong>learning and defense only</strong>. Never use it to access, damage, or test any system you do not own or have explicit written permission to test.</p>
+        <p>By watching, reading, or otherwise using Geeks Hub content or the Geeks Hub application, you agree to these terms in full.</p>
+      </div>
+
+      <nav class="toc" aria-label="Contents">
+        <h2>Contents</h2>
+        <ol>
+          <li><a href="#acceptance"><span class="n">01</span>Acceptance of these terms</a></li>
+          <li><a href="#service"><span class="n">02</span>What Geeks Hub is</a></li>
+          <li><a href="#accounts"><span class="n">03</span>The Geeks Hub application</a></li>
+          <li><a href="#youtube"><span class="n">04</span>YouTube API Services</a></li>
+          <li><a href="#acceptable-use"><span class="n">05</span>Acceptable use</a></li>
+          <li><a href="#education"><span class="n">06</span>Educational purpose &amp; security research</a></li>
+          <li><a href="#ip"><span class="n">07</span>Intellectual property</a></li>
+          <li><a href="#user-content"><span class="n">08</span>Comments &amp; community content</a></li>
+          <li><a href="#third-party"><span class="n">09</span>Third-party platforms &amp; links</a></li>
+          <li><a href="#disclaimer"><span class="n">10</span>Disclaimer of warranties</a></li>
+          <li><a href="#liability"><span class="n">11</span>Limitation of liability</a></li>
+          <li><a href="#termination"><span class="n">12</span>Termination</a></li>
+          <li><a href="#changes"><span class="n">13</span>Changes to these terms</a></li>
+          <li><a href="#law"><span class="n">14</span>Governing law</a></li>
+          <li><a href="#contact"><span class="n">15</span>Contact us</a></li>
+        </ol>
+      </nav>
+
+      <main>
+        <section id="acceptance">
+          <h2><span class="n">01</span>Acceptance of these terms</h2>
+          <p>These Terms of Service (the “Terms”) are an agreement between you and <strong>Geeks Hub</strong> (“Geeks Hub,” “we,” “us,” or “our”). By accessing or using any Geeks Hub content, page, channel, or application (together, the “Service”), you confirm that you have read, understood, and agree to be bound by these Terms and by our Privacy Policy.</p>
+          <p>If you do not agree to these Terms, do not use the Service. If you use the Service on behalf of an organization, you represent that you have authority to bind that organization to these Terms.</p>
+        </section>
+
+        <section id="service">
+          <h2><span class="n">02</span>What Geeks Hub is</h2>
+          <p>Geeks Hub is a technology media service that produces and publishes short-form and long-form video and written content about:</p>
+          <ul>
+            <li>Cybersecurity news, newly disclosed vulnerabilities (including CVEs), and security advisories;</li>
+            <li>Tips, tricks, and tutorials covering software, devices, artificial intelligence, and everyday technology;</li>
+            <li>Explainers on how attacks work, written and presented so that viewers can defend themselves and their systems.</li>
+          </ul>
+          <p>Content is published on third-party platforms — including Facebook, YouTube, and TikTok — and is provided for <strong>general information and education only</strong>. It is not professional security, legal, or technical advice for your specific situation.</p>
+        </section>
+
+        <section id="accounts">
+          <h2><span class="n">03</span>The Geeks Hub application</h2>
+          <p>Geeks Hub also operates an application (the “App”) used by the Geeks Hub team to create, manage, and publish our own content to our own channels — for example, uploading videos to the Geeks Hub YouTube channel through official platform APIs.</p>
+          <ul>
+            <li>The App is an internal publishing tool for Geeks Hub channels. It is <strong>not</strong> a public service offered for third parties to publish through, and no public user accounts are created.</li>
+            <li>Access to the App is limited to authorized Geeks Hub operators. You must not attempt to access, probe, or use the App or its API credentials if you are not an authorized operator.</li>
+            <li>When an operator connects a platform account to the App, that connection is governed both by these Terms and by the connected platform’s own terms. The operator is responsible for keeping account credentials and API keys secure and for revoking access they no longer need.</li>
+          </ul>
+        </section>
+
+        <section id="youtube">
+          <h2><span class="n">04</span>YouTube API Services</h2>
+          <p>The Geeks Hub application uses <strong>YouTube API Services</strong> to upload and manage videos on Geeks Hub’s own YouTube channel.</p>
+          <div class="callout">
+            <p>By using any part of the Service that interacts with YouTube, you agree to be bound by the <a href="https://www.youtube.com/t/terms" rel="noopener" target="_blank">YouTube Terms of Service</a>.</p>
+            <p>Google’s handling of data is described in the <a href="https://policies.google.com/privacy" rel="noopener" target="_blank">Google Privacy Policy</a>. Our own handling of any data accessed through YouTube API Services is described in our Privacy Policy.</p>
+          </div>
+          <p>Through YouTube API Services, the App accesses only the Geeks Hub channel’s own data needed to publish and manage Geeks Hub videos (such as channel and video identifiers, titles, descriptions, and upload status). The App does not collect, sell, or share data about other YouTube users, and it does not use YouTube API data for advertising.</p>
+          <p>An authorized operator may revoke the App’s access to the channel at any time through the Google security settings page at <a href="https://security.google.com/settings/security/permissions" rel="noopener" target="_blank">security.google.com/settings/security/permissions</a>.</p>
+        </section>
+
+        <section id="acceptable-use">
+          <h2><span class="n">05</span>Acceptable use</h2>
+          <p>You agree to use the Service only for lawful purposes. You must not:</p>
+          <ul>
+            <li>Use any technique, tool, vulnerability, or information presented by Geeks Hub to gain unauthorized access to, disrupt, damage, or steal data from any computer, account, network, or service;</li>
+            <li>Misrepresent Geeks Hub content as professional advice, or present our content as your own original work;</li>
+            <li>Copy, re-upload, or redistribute Geeks Hub videos or materials except as permitted in Section 7 or by applicable law;</li>
+            <li>Attempt to interfere with, scrape at abusive rates, or circumvent the operation of the Service or of the platforms that host it;</li>
+            <li>Use the Service to harass, defraud, or harm any person, or to distribute malware or deceptive content;</li>
+            <li>Violate the terms of service of any platform through which you access Geeks Hub content.</li>
+          </ul>
+        </section>
+
+        <section id="education">
+          <h2><span class="n">06</span>Educational purpose &amp; security research</h2>
+          <p>Cybersecurity cannot be taught without explaining how attacks work. Geeks Hub covers vulnerabilities, exploits, and hacking techniques <strong>strictly for education, awareness, and defense</strong> — the same purpose served by public vulnerability databases and vendor advisories, which are our sources.</p>
+          <div class="callout">
+            <p><strong>You are solely responsible for how you use what you learn.</strong> Testing a system you do not own — or do not have explicit, written authorization to test — may be a criminal offense in your jurisdiction, regardless of your intent. Geeks Hub does not authorize, encourage, or endorse any unlawful activity, and we accept no responsibility for misuse of our content.</p>
+          </div>
+          <p>Where we demonstrate a technique, we do so in controlled environments, against our own systems, or using publicly documented research material. Figures, severity scores, and affected-product details in our content are drawn from public sources such as official vendor advisories and national vulnerability databases at the time of publication; products and advisories change, so always verify against the original source before acting.</p>
+        </section>
+
+        <section id="ip">
+          <h2><span class="n">07</span>Intellectual property</h2>
+          <p>The Service and its content — including videos, scripts, narration, graphics, branding, and the “Geeks Hub” name and visual identity — are owned by Geeks Hub or its licensors and are protected by copyright and other intellectual-property laws.</p>
+          <ul>
+            <li>You may watch, read, and share links to our content for personal, non-commercial use.</li>
+            <li>Short excerpts may be quoted with clear attribution to Geeks Hub and a link back to the original, where the platform and applicable law allow it.</li>
+            <li>Any other use — including re-uploading full videos, commercial reuse, or use of our branding — requires our prior written permission.</li>
+          </ul>
+          <p>Third-party trademarks, product names, logos, and screenshots shown in our content belong to their respective owners; their appearance does not imply endorsement.</p>
+        </section>
+
+        <section id="user-content">
+          <h2><span class="n">08</span>Comments &amp; community content</h2>
+          <p>Where a platform allows it, you may post comments or other content in response to Geeks Hub posts (“User Content”). You retain ownership of your User Content, and you are responsible for it.</p>
+          <ul>
+            <li>Do not post unlawful, harmful, deceptive, infringing, or abusive material, personal data of others, or working exploit code directed at real targets.</li>
+            <li>By posting, you grant Geeks Hub a non-exclusive, royalty-free license to display, reproduce, and moderate your User Content in connection with the Service (for example, featuring a question in a follow-up video).</li>
+            <li>We may remove User Content or restrict participation at our discretion, and platform moderators may do the same under their own rules.</li>
+          </ul>
+        </section>
+
+        <section id="third-party">
+          <h2><span class="n">09</span>Third-party platforms &amp; links</h2>
+          <p>Geeks Hub content is hosted and distributed by third-party platforms, including Meta (Facebook), Google (YouTube), and TikTok. Your use of those platforms is governed by their own terms and policies, which we do not control.</p>
+          <p>Our content may link to third-party websites and sources (such as vendor advisories and security databases). We provide these links for reference; we do not endorse and are not responsible for the content, accuracy, or practices of third-party sites. Access them at your own risk.</p>
+        </section>
+
+        <section id="disclaimer">
+          <h2><span class="n">10</span>Disclaimer of warranties</h2>
+          <p>The Service is provided <strong>“as is” and “as available,”</strong> without warranties of any kind, express or implied, including warranties of accuracy, completeness, merchantability, fitness for a particular purpose, or non-infringement, to the maximum extent permitted by law.</p>
+          <p>Cybersecurity information changes quickly. We work to keep our content accurate at the time of publication, but we do not warrant that any item of content is complete, current, or free of error, or that following any tip or tutorial will produce a particular result or make any system secure. Always consult official vendor documentation and qualified professionals for decisions that affect your security.</p>
+        </section>
+
+        <section id="liability">
+          <h2><span class="n">11</span>Limitation of liability</h2>
+          <p>To the maximum extent permitted by applicable law, Geeks Hub and its operators will not be liable for any indirect, incidental, special, consequential, or punitive damages — including loss of data, profits, or access — arising out of or related to your use of, or inability to use, the Service or its content, or any action you take based on it.</p>
+          <p>Nothing in these Terms limits liability that cannot be limited under applicable law. If a limitation above is held unenforceable, our total aggregate liability for any claim arising from the Service will be limited to the greatest extent permitted by law.</p>
+        </section>
+
+        <section id="termination">
+          <h2><span class="n">12</span>Termination</h2>
+          <p>We may suspend or remove content, restrict access to any part of the Service, or discontinue the Service at any time, with or without notice — for example, if we believe these Terms have been violated. You may stop using the Service at any time. Sections that by their nature should survive termination (including Sections 6, 7, 10, 11, and 14) will survive.</p>
+        </section>
+
+        <section id="changes">
+          <h2><span class="n">13</span>Changes to these terms</h2>
+          <p>We may update these Terms from time to time. When we do, we will revise the “Last updated” date at the top of this page, and the updated Terms will apply from the stated effective date. Material changes will be reflected on this page before they take effect where reasonably possible. Your continued use of the Service after an update constitutes acceptance of the revised Terms.</p>
+        </section>
+
+        <section id="law">
+          <h2><span class="n">14</span>Governing law</h2>
+          <p>These Terms are governed by the laws of the Arab Republic of Egypt, without regard to conflict-of-law rules, except where mandatory consumer-protection laws in your place of residence grant you additional rights. Any dispute arising from these Terms or the Service will first be addressed through good-faith discussion; if unresolved, it will be subject to the exclusive jurisdiction of the competent courts of Egypt, unless applicable law requires otherwise.</p>
+          <p>If any provision of these Terms is found unenforceable, the remaining provisions remain in full effect.</p>
+        </section>
+
+        <section id="contact">
+          <h2><span class="n">15</span>Contact us</h2>
+          <p>Questions about these Terms — including permissions requests and copyright concerns — can be sent to Geeks Hub through the messaging features of our official channels:</p>
+          <div class="channels" style="display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 4px;">
+            <a href="https://youtube.com/@g33ks-hub?si=WITg_uAS3uoJfbc1" rel="noopener" target="_blank" style="border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 16px;text-decoration:none;color:var(--ink);font-size:14px;font-weight:500;">YouTube — @g33ks-hub</a>
+            <span style="border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 16px;color:var(--ink);font-size:14px;font-weight:500;">Facebook — Geeks Hub page</span>
+          </div>
+          <p>For copyright matters, please identify the content in question, your right to act on it, and the location (URL) of the material so we can respond promptly.</p>
+        </section>
+      </main>
+
+      <footer>
+        <p style="margin:0;">These Terms of Service apply to Geeks Hub content and the Geeks Hub application. Our Privacy Policy explains how we handle information, including any data accessed through YouTube API Services.</p>
+        <p class="fine">© 2026 Geeks Hub. All rights reserved. “YouTube” is a trademark of Google LLC; “Facebook” is a trademark of Meta Platforms, Inc.; “TikTok” is a trademark of TikTok Ltd. This page is not affiliated with or endorsed by Google, Meta, or TikTok.</p>
+      </footer>
+
+    </div>
+  </body>
+</html>

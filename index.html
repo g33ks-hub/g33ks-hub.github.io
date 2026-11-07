@@ -1,0 +1,811 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="description" content="Geeks Hub — Elite Cybersecurity Expertise. The latest zero-days, breaches, hacks and AI threats, decoded by elite cybersecurity experts in 60–90 second Reels, three times a day." />
+    <link rel="icon" href="data:," />
+    <title>Geeks Hub — Elite Cybersecurity Expertise</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #04070a;
+        --bg-raise: #0a1116;
+        --ink: #e8f5ee;
+        --ink-soft: #93a89e;
+        --line: #1c2b33;
+        --green: #2ee89b;
+        --green-bright: #5cffbe;
+        --blue: #4fc3ff;
+        --chip: #0d1a20;
+        --hero-ink: #eafff5;
+        --hero-soft: #b9d8cc;
+        --shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+      }
+
+      html { box-sizing: border-box; scroll-behavior: smooth; }
+      *, *::before, *::after { box-sizing: inherit; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Manrope", system-ui, sans-serif;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      img { max-width: 100%; display: block; }
+      a { color: inherit; }
+      .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+      /* ---------- top strip ---------- */
+      .topstrip {
+        position: absolute; inset: 0 0 auto 0; z-index: 5;
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 16px; padding: 18px clamp(18px, 4vw, 48px);
+        color: var(--hero-ink);
+      }
+      .signal {
+        display: inline-flex; align-items: center; gap: 9px;
+        font-family: "JetBrains Mono", monospace; font-size: 11px;
+        letter-spacing: 0.22em; text-transform: uppercase;
+      }
+      .signal .dot {
+        width: 8px; height: 8px; border-radius: 50%;
+        background: var(--green-bright); box-shadow: 0 0 12px var(--green-bright);
+        animation: pulse 2.2s ease-in-out infinite;
+      }
+      @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+      .topnav { display: flex; gap: clamp(14px, 3vw, 34px); }
+      .topnav a {
+        font-family: "JetBrains Mono", monospace; font-size: 11px;
+        letter-spacing: 0.22em; text-transform: uppercase; text-decoration: none;
+        color: var(--hero-soft); padding: 6px 2px;
+        border-bottom: 1px solid transparent;
+      }
+      .topnav a:hover, .topnav a:focus-visible { color: #fff; border-bottom-color: var(--green-bright); }
+      @media (max-width: 640px) {
+        .topstrip { padding: 16px 16px; gap: 10px; }
+        .signal { font-size: 10px; letter-spacing: 0.16em; }
+        .topnav { gap: 13px; }
+        .topnav a { font-size: 10px; letter-spacing: 0.14em; }
+        .topnav a:nth-child(2), .topnav a:nth-child(3) { display: none; }
+      }
+
+      /* ---------- hero ---------- */
+      .hero {
+        position: relative; isolation: isolate;
+        min-height: min(94svh, 880px);
+        display: flex; flex-direction: column; justify-content: flex-end;
+        padding: 110px clamp(18px, 4vw, 48px) 0;
+        color: var(--hero-ink); background: #030608;
+        overflow: hidden;
+      }
+      .hero-media { position: absolute; inset: 0; z-index: -2; }
+      .hero-media img { width: 100%; height: 100%; object-fit: cover; object-position: center 38%; }
+      .hero::after {
+        content: ""; position: absolute; inset: 0; z-index: -1;
+        background:
+          linear-gradient(180deg, rgba(2, 6, 8, 0.62) 0%, rgba(2, 6, 8, 0.05) 34%, rgba(2, 6, 8, 0.28) 62%, rgba(2, 6, 8, 0.94) 100%),
+          linear-gradient(94deg, rgba(2, 6, 8, 0.66) 0%, rgba(2, 6, 8, 0) 55%);
+      }
+      #rain { position: absolute; inset: 0; z-index: 0; opacity: 0.35; pointer-events: none; }
+      .scanlines {
+        position: absolute; inset: 0; z-index: 1; pointer-events: none;
+        background: repeating-linear-gradient(0deg, rgba(255,255,255,0.028) 0 1px, transparent 1px 3px);
+        mix-blend-mode: overlay;
+      }
+      .sweep {
+        position: absolute; left: 0; right: 0; height: 120px; z-index: 1; pointer-events: none;
+        background: linear-gradient(180deg, transparent, rgba(92,255,190,0.05), transparent);
+        animation: sweep 7s linear infinite;
+      }
+      @keyframes sweep { from { top: -15%; } to { top: 110%; } }
+      .hero-inner { position: relative; z-index: 2; max-width: 1240px; width: 100%; margin: 0 auto; }
+      .hero-kicker {
+        font-family: "JetBrains Mono", monospace; font-size: clamp(11px, 1.4vw, 13px);
+        letter-spacing: 0.34em; text-transform: uppercase; color: var(--green-bright);
+        margin: 0 0 14px;
+      }
+      h1.brand {
+        font-family: "Unbounded", sans-serif; font-weight: 900;
+        font-size: clamp(52px, 12.5vw, 168px);
+        line-height: 0.98; letter-spacing: 0.005em;
+        margin: 0; text-transform: uppercase; color: #f4fffa;
+        text-shadow: 0 6px 44px rgba(0, 0, 0, 0.55), 0 0 34px rgba(46, 232, 155, 0.28);
+        animation: glitchShift 7s linear infinite;
+      }
+      @keyframes glitchShift {
+        0%, 90.9%, 93.1%, 100% { transform: translate(0, 0); text-shadow: 0 6px 44px rgba(0,0,0,0.55), 0 0 34px rgba(46,232,155,0.28); }
+        91% { transform: translate(-3px, 1px); text-shadow: -4px 0 rgba(79,195,255,0.8), 4px 0 rgba(92,255,190,0.8); }
+        92% { transform: translate(3px, -1px); text-shadow: 4px 0 rgba(79,195,255,0.8), -4px 0 rgba(92,255,190,0.8); }
+        92.6% { transform: translate(-1px, 0); }
+      }
+      .granted {
+        display: inline-flex; align-items: center; gap: 10px;
+        margin: 0 0 18px; padding: 7px 14px;
+        border: 1px solid rgba(92, 255, 190, 0.55); border-radius: 4px;
+        background: rgba(3, 16, 10, 0.55);
+        font-family: "JetBrains Mono", monospace; font-size: 11px;
+        letter-spacing: 0.3em; text-transform: uppercase; color: var(--green-bright);
+      }
+      .granted::after {
+        content: ""; width: 8px; height: 13px; background: var(--green-bright);
+        animation: blink 1.1s steps(1) infinite;
+      }
+      @keyframes blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0; } }
+      h1.brand .hub {
+        color: transparent;
+        -webkit-text-stroke: 2px var(--green-bright);
+        text-shadow: none;
+      }
+      @media (max-width: 560px) { h1.brand .hub { -webkit-text-stroke-width: 1.4px; } }
+      .tagline {
+        max-width: 620px; margin: 22px 0 0;
+        font-size: clamp(17px, 2.3vw, 23px); font-weight: 600;
+        color: var(--hero-ink);
+      }
+      .tagline em { font-style: normal; color: var(--green-bright); }
+      .hero-sub {
+        max-width: 560px; margin: 10px 0 0;
+        font-size: 15.5px; color: var(--hero-soft);
+      }
+      .hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin: 30px 0 44px; }
+      .btn {
+        display: inline-flex; align-items: center; gap: 10px;
+        padding: 14px 24px; border-radius: 999px;
+        font-weight: 800; font-size: 15px; text-decoration: none;
+        transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+      }
+      .btn svg { width: 19px; height: 19px; flex: none; }
+      .btn-primary { background: var(--green-bright); color: #03130b; }
+      .btn-primary:hover { transform: translateY(-2px); background: #82ffd0; }
+      .btn-ghost {
+        border: 1px solid rgba(234, 255, 245, 0.4); color: var(--hero-ink);
+        background: rgba(3, 10, 8, 0.35); backdrop-filter: blur(6px);
+      }
+      .btn-ghost:hover { transform: translateY(-2px); border-color: var(--green-bright); }
+
+      /* ticker */
+      .ticker {
+        position: relative; z-index: 1;
+        border-top: 1px solid rgba(140, 255, 205, 0.22);
+        background: rgba(2, 8, 6, 0.55); backdrop-filter: blur(6px);
+        overflow: hidden; white-space: nowrap;
+        padding: 11px 0;
+      }
+      .ticker-track { display: inline-flex; gap: 0; animation: tick 36s linear infinite; will-change: transform; }
+      .ticker span {
+        font-family: "JetBrains Mono", monospace; font-size: 12px;
+        letter-spacing: 0.26em; text-transform: uppercase; color: var(--hero-soft);
+        padding: 0 26px;
+      }
+      .ticker b { color: var(--green-bright); font-weight: 500; }
+      @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+      /* ---------- what is geeks hub + terminal ---------- */
+      .about-grid {
+        display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(24px, 4vw, 52px);
+        align-items: center; margin-top: 26px;
+      }
+      @media (max-width: 860px) { .about-grid { grid-template-columns: 1fr; } }
+      .about-copy p { font-size: 17px; color: var(--ink-soft); margin: 0 0 16px; max-width: 560px; }
+      .about-copy p strong { color: var(--ink); }
+      .about-copy p .g { color: var(--green); font-weight: 700; }
+      .about-copy p .b { color: var(--blue); font-weight: 700; }
+      .keyword-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
+      .keyword-row span {
+        font-family: "JetBrains Mono", monospace; font-size: 11px;
+        letter-spacing: 0.18em; text-transform: uppercase;
+        border: 1px solid var(--line); border-radius: 999px;
+        padding: 6px 13px; color: var(--ink-soft); background: var(--chip);
+      }
+      .terminal {
+        border: 1px solid #23403a; border-radius: 12px; overflow: hidden;
+        background: #02090a; box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(92,255,190,0.06), 0 0 44px rgba(46, 232, 155, 0.08);
+        font-family: "JetBrains Mono", monospace;
+      }
+      .term-bar {
+        display: flex; align-items: center; gap: 8px;
+        padding: 11px 14px; background: #071314; border-bottom: 1px solid #17302c;
+      }
+      .term-bar i { width: 11px; height: 11px; border-radius: 50%; display: block; }
+      .term-bar i:nth-child(1) { background: #1d4d3a; }
+      .term-bar i:nth-child(2) { background: #2ee89b; }
+      .term-bar i:nth-child(3) { background: #4fc3ff; }
+      .term-bar span {
+        margin-left: 8px; font-size: 11px; letter-spacing: 0.14em; color: #7fa79a;
+      }
+      .term-body {
+        padding: 18px 18px 20px; font-size: 13.5px; line-height: 1.85;
+        color: #c9f5e2; min-height: 252px; position: relative;
+      }
+      .term-body::after {
+        content: ""; position: absolute; inset: 0; pointer-events: none;
+        background: repeating-linear-gradient(0deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 3px);
+      }
+      .term-body .prompt { color: var(--green-bright); }
+      .term-body .cmd { color: #eafff5; }
+      .term-body .ok { color: var(--blue); }
+      .term-body .granted-line {
+        color: #03130b; background: var(--green-bright); font-weight: 700;
+        padding: 1px 8px; letter-spacing: 0.22em;
+      }
+      .term-body .dim { color: #6f9184; }
+      .caret {
+        display: inline-block; width: 8px; height: 14px; margin-left: 3px;
+        background: var(--green-bright); vertical-align: -2px;
+        animation: blink 1.1s steps(1) infinite;
+      }
+      .hexbg {
+        position: relative;
+      }
+      .hexbg .hex {
+        position: absolute; top: 6px; right: 0; pointer-events: none;
+        font-family: "JetBrains Mono", monospace; font-size: 11px; line-height: 2;
+        letter-spacing: 0.3em; color: var(--green); opacity: 0.14; text-align: right;
+        user-select: none; max-width: 46%; overflow: hidden; white-space: pre;
+      }
+      @media (max-width: 700px) { .hexbg .hex { display: none; } }
+
+      /* ---------- layout ---------- */
+      .wrap { max-width: 1240px; margin: 0 auto; padding: 0 clamp(18px, 4vw, 48px); }
+      section { padding: clamp(56px, 8vw, 96px) 0 0; }
+      .sec-head { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; margin-bottom: 8px; }
+      .sec-index {
+        font-family: "JetBrains Mono", monospace; font-size: 12px;
+        letter-spacing: 0.3em; color: var(--green);
+      }
+      h2 {
+        font-family: "Unbounded", sans-serif; font-weight: 700;
+        font-size: clamp(26px, 4.4vw, 44px); line-height: 1.12;
+        margin: 0; text-transform: uppercase; letter-spacing: 0.01em;
+      }
+      .sec-lede { max-width: 640px; color: var(--ink-soft); font-size: 16.5px; margin: 14px 0 0; }
+
+      /* stats */
+      .stats {
+        display: grid; grid-template-columns: repeat(4, 1fr);
+        border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+        margin-top: clamp(48px, 7vw, 80px);
+      }
+      .stat { padding: 26px 10px 26px 22px; border-left: 1px solid var(--line); }
+      .stat:first-child { border-left: none; padding-left: 0; }
+      .stat .num {
+        font-family: "Unbounded", sans-serif; font-weight: 700;
+        font-size: clamp(26px, 3.6vw, 40px); line-height: 1; display: block;
+      }
+      .stat .num i { font-style: normal; color: var(--green); }
+      .stat .lbl {
+        display: block; margin-top: 9px; font-family: "JetBrains Mono", monospace;
+        font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-soft);
+      }
+      @media (max-width: 760px) {
+        .stats { grid-template-columns: 1fr 1fr; }
+        .stat:nth-child(3) { border-left: none; padding-left: 0; }
+        .stat { border-top: 1px solid var(--line); }
+        .stat:nth-child(-n+2) { border-top: none; }
+      }
+
+      /* coverage rows */
+      .rows { margin-top: 30px; border-top: 1px solid var(--line); }
+      .row {
+        display: grid; grid-template-columns: 64px 1fr 1.2fr 30px;
+        gap: 18px; align-items: baseline;
+        padding: 26px 6px; border-bottom: 1px solid var(--line);
+        text-decoration: none;
+      }
+      .row .no { font-family: "JetBrains Mono", monospace; font-size: 13px; color: var(--green); }
+      .row h3 { margin: 0; font-size: clamp(19px, 2.4vw, 25px); font-weight: 800; letter-spacing: -0.01em; }
+      .row p { margin: 0; color: var(--ink-soft); font-size: 15.5px; }
+      .row .arr { font-family: "JetBrains Mono", monospace; color: var(--ink-soft); transition: transform 0.18s ease, color 0.18s ease; }
+      a.row:hover .arr { transform: translateX(5px); color: var(--green); }
+      a.row:hover h3 { color: var(--green); }
+      @media (max-width: 700px) {
+        .row { grid-template-columns: 40px 1fr 24px; }
+        .row p { grid-column: 2 / 3; }
+        .row .arr { grid-row: 1; grid-column: 3; }
+      }
+
+      /* schedule */
+      .sched {
+        margin-top: 32px; display: grid; grid-template-columns: repeat(3, 1fr);
+        gap: 1px; background: var(--line); border: 1px solid var(--line);
+        border-radius: 18px; overflow: hidden; box-shadow: var(--shadow);
+      }
+      .slot { background: var(--bg-raise); padding: 28px 26px 30px; }
+      .slot .when {
+        font-family: "JetBrains Mono", monospace; font-size: 11px;
+        letter-spacing: 0.26em; text-transform: uppercase; color: var(--blue);
+      }
+      .slot .time {
+        font-family: "Unbounded", sans-serif; font-weight: 700;
+        font-size: clamp(28px, 3.4vw, 38px); margin: 12px 0 2px; line-height: 1;
+      }
+      .slot .zone { font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--ink-soft); letter-spacing: 0.12em; }
+      .slot p { margin: 14px 0 0; color: var(--ink-soft); font-size: 15px; }
+      .slot.next { outline: 2px solid var(--green); outline-offset: -2px; }
+      .slot .live-tag {
+        display: none; margin-left: 8px; padding: 2px 8px; border-radius: 999px;
+        background: var(--green); color: #03130b; font-weight: 700; letter-spacing: 0.14em;
+      }
+      .slot.next .live-tag { display: inline-block; }
+      @media (max-width: 760px) { .sched { grid-template-columns: 1fr; } }
+      .clockline {
+        margin-top: 16px; font-family: "JetBrains Mono", monospace;
+        font-size: 12.5px; letter-spacing: 0.08em; color: var(--ink-soft);
+      }
+      .clockline b { color: var(--green); font-weight: 700; }
+
+      /* manifesto */
+      .manifesto {
+        margin-top: 30px; border-radius: 18px; overflow: hidden;
+        position: relative; isolation: isolate; color: var(--hero-ink);
+        background: #030608; box-shadow: var(--shadow);
+      }
+      .manifesto img.bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 70%; z-index: -2; opacity: 0.55; }
+      .manifesto::after { content: ""; position: absolute; inset: 0; z-index: -1; background: linear-gradient(90deg, rgba(2, 7, 6, 0.92) 20%, rgba(2, 7, 6, 0.45) 70%, rgba(2, 7, 6, 0.2)); }
+      .manifesto-in { padding: clamp(30px, 5vw, 56px); max-width: 700px; }
+      .manifesto p.big {
+        font-size: clamp(21px, 3vw, 30px); font-weight: 700; line-height: 1.38; margin: 0;
+      }
+      .manifesto p.big em { font-style: normal; color: var(--green-bright); }
+      .manifesto p.small { margin: 16px 0 0; color: var(--hero-soft); font-size: 15.5px; max-width: 540px; }
+
+      /* connect */
+      .connect-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 30px; }
+      @media (max-width: 700px) { .connect-grid { grid-template-columns: 1fr; } }
+      .channel {
+        display: flex; align-items: center; gap: 18px;
+        padding: 24px; border: 1px solid var(--line); border-radius: 16px;
+        background: var(--bg-raise); text-decoration: none; box-shadow: var(--shadow);
+        transition: transform 0.18s ease, border-color 0.18s ease;
+      }
+      .channel:hover { transform: translateY(-3px); border-color: var(--green); }
+      .channel .ic {
+        width: 52px; height: 52px; flex: none; border-radius: 14px;
+        display: grid; place-items: center; background: var(--chip); color: var(--green);
+      }
+      .channel .ic svg { width: 26px; height: 26px; }
+      .channel h3 { margin: 0; font-size: 19px; font-weight: 800; }
+      .channel p { margin: 2px 0 0; color: var(--ink-soft); font-size: 14px; font-family: "JetBrains Mono", monospace; letter-spacing: 0.04em; }
+      .channel .go { margin-left: auto; font-family: "JetBrains Mono", monospace; color: var(--ink-soft); }
+      .channel:hover .go { color: var(--green); }
+
+      footer {
+        margin-top: clamp(64px, 9vw, 110px);
+        border-top: 1px solid var(--line);
+        padding: 30px 0 42px;
+      }
+      .foot {
+        display: flex; flex-wrap: wrap; gap: 14px 30px; align-items: center; justify-content: space-between;
+        font-family: "JetBrains Mono", monospace; font-size: 12px;
+        letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-soft);
+      }
+      .foot nav { display: flex; gap: 24px; flex-wrap: wrap; }
+      .foot a { text-decoration: none; }
+      .foot a:hover { color: var(--green); }
+
+      @media (prefers-reduced-motion: reduce) {
+        .ticker-track { animation: none; }
+        .signal .dot { animation: none; }
+        .sweep { animation: none; display: none; }
+        h1.brand { animation: none; }
+        .granted::after, .caret { animation: none; }
+        html { scroll-behavior: auto; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- ================= HERO ================= -->
+    <header class="hero">
+      <div class="hero-media">
+        <img src="hero.webp" alt="A hooded figure in silhouette facing a wall of falling green and blue digital code, with a dotted world map" />
+      </div>
+      <canvas id="rain" aria-hidden="true"></canvas>
+      <div class="scanlines" aria-hidden="true"></div>
+      <div class="sweep" aria-hidden="true"></div>
+
+      <div class="topstrip">
+        <span class="signal"><span class="dot"></span> Signal&nbsp;·&nbsp;Live</span>
+        <nav class="topnav" aria-label="Sections">
+          <a href="#what">The Hub</a>
+          <a href="#coverage">Coverage</a>
+          <a href="#schedule">Schedule</a>
+          <a href="#about">Manifesto</a>
+          <a href="#connect">Connect</a>
+        </nav>
+      </div>
+
+      <div class="hero-inner">
+        <p class="granted">Access granted</p>
+        <p class="hero-kicker">// Cyber security · Hacks · AI · Tech intel</p>
+        <h1 class="brand">Geeks<br /><span class="hub">Hub</span></h1>
+        <p class="tagline" id="tagline">Somewhere, a zero-day just dropped. <em>We decode it before your coffee cools.</em></p>
+        <p class="hero-sub">Elite cybersecurity expertise, on the record. The most shadowy corners of the internet — the newest CVEs, breaches, tricks and AI threats — decoded by elite experts into sharp 60–90 second Reels, three times a day.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="https://youtube.com/@g33ks-hub?si=WITg_uAS3uoJfbc1" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2s-.2-1.6-.9-2.3c-.9-.9-1.9-.9-2.3-1C16.6 3.6 12 3.6 12 3.6s-4.6 0-7.8.3c-.4.1-1.4.1-2.3 1-.7.7-.9 2.3-.9 2.3S.8 9.1.8 11v1.8c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.9.9 2 .9 2.5 1 1.8.2 7.6.3 7.6.3s4.6 0 7.8-.4c.4-.1 1.4-.1 2.3-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8V11c0-1.9-.2-3.8-.2-3.8zM9.8 15.1V8.4l6.2 3.4-6.2 3.3z"/></svg>
+            Watch on YouTube
+          </a>
+          <a class="btn btn-ghost" href="#connect">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.2"/></svg>
+            Follow the signal
+          </a>
+        </div>
+      </div>
+
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker-track" id="tickerTrack">
+          <span>Zero-days <b>◆</b></span><span>CVE intel <b>◆</b></span><span>Ransomware <b>◆</b></span><span>Data breaches <b>◆</b></span><span>Phishing kits <b>◆</b></span><span>AI threats <b>◆</b></span><span>Exploits decoded <b>◆</b></span><span>Tips &amp; tricks <b>◆</b></span><span>Dark web watch <b>◆</b></span><span>Patch alerts <b>◆</b></span>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+
+      <!-- ================= STATS ================= -->
+      <div class="stats" role="list" aria-label="Geeks Hub in numbers">
+        <div class="stat" role="listitem"><span class="num">3<i>×</i></span><span class="lbl">Reels every day</span></div>
+        <div class="stat" role="listitem"><span class="num">60–90<i>s</i></span><span class="lbl">Per transmission</span></div>
+        <div class="stat" role="listitem"><span class="num">24<em style="font-style:normal;color:var(--green)">/</em>7</span><span class="lbl">Threat monitoring</span></div>
+        <div class="stat" role="listitem"><span class="num">0</span><span class="lbl">Fluff. Ever.</span></div>
+      </div>
+
+      <!-- ================= WHAT IS GEEKS HUB ================= -->
+      <section id="what">
+        <div class="sec-head">
+          <span class="sec-index">01</span>
+          <h2>What is Geeks Hub</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p><strong>Geeks Hub is elite cybersecurity expertise — the latest zero-days, breaches, hacks and tech news, decoded by elite experts, second by second.</strong> If it is being exploited, leaked, patched or weaponized anywhere on Earth, it passes through here first.</p>
+            <p>Every day we ship short, sharp videos on <span class="g">CVEs</span>, <span class="g">tips &amp; tricks</span>, and the biggest stories in <span class="b">cyber security</span> and <span class="b">A.I.</span> — researched from primary sources, stripped of hype, and cut for people who actually live in this world.</p>
+            <p>Made for <strong>geeks everywhere</strong> — defenders, researchers, the curious, and everyone who wants to see the attack coming before it lands.</p>
+            <div class="keyword-row" aria-hidden="true">
+              <span>Zero-days</span><span>CVEs</span><span>Breaches</span><span>Exploits</span><span>Tradecraft</span><span>A.I. threats</span>
+            </div>
+          </div>
+          <div class="terminal" aria-label="Terminal session introducing Geeks Hub">
+            <div class="term-bar"><i></i><i></i><i></i><span>geekshub — zsh · secure shell</span></div>
+            <div class="term-body" id="termBody"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= COVERAGE ================= -->
+      <section id="coverage" class="hexbg">
+        <div class="hex" aria-hidden="true">4f 3a 9c 1e ff 07 b2 6d
+c1 88 3f 5a 09 de 47 20
+7b e4 61 ac 95 02 f8 3d
+1a 6f d3 58 be 90 24 c7
+e9 41 7d 06 b5 8a f2 69
+30 cf 9b 52 17 ae d8 04</div>
+        <div class="sec-head">
+          <span class="sec-index">02</span>
+          <h2>What we hunt</h2>
+        </div>
+        <p class="sec-lede">Every episode starts from primary sources — vendor advisories, the CISA Known Exploited Vulnerabilities catalog and the NVD — then gets compressed into a briefing you can finish on an elevator ride.</p>
+
+        <div class="rows">
+          <a class="row" href="#schedule">
+            <span class="no">/01</span>
+            <h3>CVEs &amp; Zero-Days</h3>
+            <p>The newest vulnerabilities that are actually being exploited in the wild — what they hit, how bad it is, and the patch that kills them.</p>
+            <span class="arr">→</span>
+          </a>
+          <a class="row" href="#schedule">
+            <span class="no">/02</span>
+            <h3>Hacks &amp; Breaches, Decoded</h3>
+            <p>How the big intrusions really happened — the entry point, the lateral move, the mistake — retold step by step, minus the Hollywood.</p>
+            <span class="arr">→</span>
+          </a>
+          <a class="row" href="#schedule">
+            <span class="no">/03</span>
+            <h3>Tips, Tricks &amp; Tradecraft</h3>
+            <p>Tools, commands and techniques from both sides of the firewall — the stuff defenders use, and the stuff they defend against.</p>
+            <span class="arr">→</span>
+          </a>
+          <a class="row" href="#schedule">
+            <span class="no">/04</span>
+            <h3>AI &amp; Tech on the Edge</h3>
+            <p>AI models turned into attack tools, deepfake fraud, and the tech shifts quietly rewriting the threat landscape.</p>
+            <span class="arr">→</span>
+          </a>
+        </div>
+      </section>
+
+      <!-- ================= SCHEDULE ================= -->
+      <section id="schedule">
+        <div class="sec-head">
+          <span class="sec-index">03</span>
+          <h2>Daily transmissions</h2>
+        </div>
+        <p class="sec-lede">Three drops a day, timed to US Eastern — morning scroll, lunch break, and prime evening. Fresh intel or a field-craft briefing; never a rerun.</p>
+
+        <div class="sched" id="sched">
+          <article class="slot" data-et="9:00">
+            <span class="when">Morning edition<span class="live-tag">Next drop</span></span>
+            <div class="time">9:00 AM</div>
+            <span class="zone">NEW YORK · ET — 16:00 CAIRO</span>
+            <p>The overnight haul: new KEV entries, fresh exploits and the one patch you install before work.</p>
+          </article>
+          <article class="slot" data-et="12:30">
+            <span class="when">Midday edition<span class="live-tag">Next drop</span></span>
+            <div class="time">12:30 PM</div>
+            <span class="zone">NEW YORK · ET — 19:30 CAIRO</span>
+            <p>Lunch-break briefing: the breach everyone's talking about, decoded while it is still unfolding.</p>
+          </article>
+          <article class="slot" data-et="19:30">
+            <span class="when">Evening edition<span class="live-tag">Next drop</span></span>
+            <div class="time">7:30 PM</div>
+            <span class="zone">NEW YORK · ET — 02:30 CAIRO</span>
+            <p>Prime time: the deep cut — tradecraft, AI threats and the story behind the day's biggest hack.</p>
+          </article>
+        </div>
+        <p class="clockline" id="clockline">New York now: <b id="nyClock">—</b> · Next transmission in <b id="nextIn">—</b></p>
+      </section>
+
+      <!-- ================= MANIFESTO ================= -->
+      <section id="about">
+        <div class="sec-head">
+          <span class="sec-index">04</span>
+          <h2>The manifesto</h2>
+        </div>
+        <div class="manifesto">
+          <img class="bg" src="hero.webp" alt="" aria-hidden="true" />
+          <div class="manifesto-in">
+            <p class="big">The internet has a dark side. We live in it — <em>so you can see it coming.</em></p>
+            <p class="small">Geeks Hub is a cyber security channel built on one rule: if it matters, it comes from a primary source, and if we can't verify it, we don't air it. No hype, no recycled scares — just the signal, three times a day.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CONNECT ================= -->
+      <section id="connect">
+        <div class="sec-head">
+          <span class="sec-index">05</span>
+          <h2>Connect</h2>
+        </div>
+        <p class="sec-lede">One hub, every platform. Follow wherever you scroll — new transmissions land on all of them.</p>
+
+        <div class="connect-grid">
+          <a class="channel" href="https://youtube.com/@g33ks-hub?si=WITg_uAS3uoJfbc1" target="_blank" rel="noopener">
+            <span class="ic">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.2s-.2-1.6-.9-2.3c-.9-.9-1.9-.9-2.3-1C16.6 3.6 12 3.6 12 3.6s-4.6 0-7.8.3c-.4.1-1.4.1-2.3 1-.7.7-.9 2.3-.9 2.3S.8 9.1.8 11v1.8c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.9.9 2 .9 2.5 1 1.8.2 7.6.3 7.6.3s4.6 0 7.8-.4c.4-.1 1.4-.1 2.3-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8V11c0-1.9-.2-3.8-.2-3.8zM9.8 15.1V8.4l6.2 3.4-6.2 3.3z"/></svg>
+            </span>
+            <span>
+              <h3>YouTube</h3>
+              <p>youtube.com/@g33ks-hub</p>
+            </span>
+            <span class="go">→</span>
+          </a>
+          <a class="channel" href="https://www.facebook.com/1309373442269898" target="_blank" rel="noopener">
+            <span class="ic">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.2h2.4l.4-2.8h-2.8V9.2c0-.8.2-1.4 1.4-1.4h1.5V5.3c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v1.8H7.8v2.8h2.4V21h3.3z"/></svg>
+            </span>
+            <span>
+              <h3>Facebook</h3>
+              <p>Geeks Hub — the Page</p>
+            </span>
+            <span class="go">→</span>
+          </a>
+          <a class="channel" href="https://t.me/+U_ptjwAA2HU0NGY8" target="_blank" rel="noopener">
+            <span class="ic">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+            </span>
+            <span>
+              <h3>Telegram</h3>
+              <p>Geeks HUB — the Channel</p>
+            </span>
+            <span class="go">→</span>
+          </a>
+          <a class="channel" href="https://t.me/GeeksHuBbot" target="_blank" rel="noopener">
+            <span class="ic">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 1 7 7c2.4.6 4 2.7 4 5.2 0 3-2.5 5.3-5.6 5.3-.7 0-1.3-.1-1.9-.3A7 7 0 0 1 12 16a7 7 0 0 1-3.5 3.2c-.6.2-1.2.3-1.9.3C3.5 19.5 1 17.2 1 14.2 1 11.7 2.6 9.6 5 9a7 7 0 0 1 7-7zm-3.2 7.6a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8zm6.4 0a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8zM8.6 15.2c.9 1 2.1 1.5 3.4 1.5s2.5-.5 3.4-1.5l-1-.9c-.6.7-1.5 1-2.4 1s-1.8-.3-2.4-1l-1 .9z"/></svg>
+            </span>
+            <span>
+              <h3>Telegram Bot</h3>
+              <p>@GeeksHuBbot</p>
+            </span>
+            <span class="go">→</span>
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+    <footer>
+      <div class="wrap foot">
+        <span>© 2026 Geeks Hub</span>
+        <nav aria-label="Legal">
+          <a href="https://muse.ai/s/geeks-hub-privacy-policy-xlxg6xzxhxxxvxipxsh/yq9fhbStW43aA6CZ1fEqxjj58mQafTKySYoYSCU46CE" target="_blank" rel="noopener">Privacy Policy</a>
+          <a href="https://muse.ai/s/geeks-hub-terms-of-service-xss6xzxhxx7xrrf2/o8uvqGV3TFK_MdezGVqcQBL-Lt6sBY-QipixrhtdmwY" target="_blank" rel="noopener">Terms of Service</a>
+        </nav>
+        <span>Stay paranoid. Stay patched.</span>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        "use strict";
+
+        /* ---- duplicate ticker content for a seamless loop ---- */
+        var track = document.getElementById("tickerTrack");
+        if (track) { track.innerHTML += track.innerHTML; }
+
+        /* ---- digital rain over the hero (hex + symbols, brand style) ---- */
+        var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        var canvas = document.getElementById("rain");
+        if (canvas && !reduced) {
+          var ctx = canvas.getContext("2d");
+          var glyphs = "0123456789ABCDEF<>/\\{}#$%&@*+=;:".split("");
+          var fontSize = 14, cols = 0, drops = [], raf = null, last = 0;
+          function size() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+            cols = Math.floor(canvas.width / fontSize);
+            drops = [];
+            for (var i = 0; i < cols; i++) { drops[i] = Math.random() * (canvas.height / fontSize); }
+          }
+          function draw(now) {
+            raf = requestAnimationFrame(draw);
+            if (now - last < 66) { return; }
+            last = now;
+            ctx.fillStyle = "rgba(3,6,8,0.16)";
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.font = fontSize + "px 'JetBrains Mono', monospace";
+            for (var i = 0; i < cols; i++) {
+              var ch = glyphs[Math.floor(Math.random() * glyphs.length)];
+              ctx.fillStyle = Math.random() > 0.5 ? "rgba(92,255,190,0.75)" : "rgba(79,195,255,0.65)";
+              ctx.fillText(ch, i * fontSize, drops[i] * fontSize);
+              if (drops[i] * fontSize > canvas.height && Math.random() > 0.976) { drops[i] = 0; }
+              drops[i] += 0.55;
+            }
+          }
+          size();
+          raf = requestAnimationFrame(draw);
+          var resizeT;
+          window.addEventListener("resize", function () {
+            clearTimeout(resizeT);
+            resizeT = setTimeout(size, 180);
+          });
+          document.addEventListener("visibilitychange", function () {
+            if (document.hidden) { cancelAnimationFrame(raf); raf = null; }
+            else if (!raf) { raf = requestAnimationFrame(draw); }
+          });
+        }
+
+        /* ---- terminal typewriter ---- */
+        var termBody = document.getElementById("termBody");
+        if (termBody) {
+          var LINES = [
+            { prompt: "root@geekshub:~$", cmd: "whoami", type: true },
+            { out: "geeks_hub — watcher of the wire", cls: "dim" },
+            { prompt: "root@geekshub:~$", cmd: "./monitor --feed zero-days,breaches,ai --live", type: true },
+            { out: "[ OK ] CISA KEV connected", cls: "ok" },
+            { out: "[ OK ] NVD + vendor advisories connected", cls: "ok" },
+            { out: "[ OK ] 3 transmissions/day armed — 09:00 · 12:30 · 19:30 ET", cls: "" },
+            { out: "ACCESS GRANTED — welcome, geek.", cls: "granted-line" }
+          ];
+          var caret = document.createElement("span");
+          caret.className = "caret";
+          function addLine(line) {
+            var div = document.createElement("div");
+            if (line.cmd !== undefined) {
+              var p = document.createElement("span");
+              p.className = "prompt"; p.textContent = line.prompt + " ";
+              var c = document.createElement("span");
+              c.className = "cmd";
+              div.appendChild(p); div.appendChild(c);
+              div._cmdSpan = c;
+            } else {
+              var o = document.createElement("span");
+              if (line.cls) { o.className = line.cls; }
+              o.textContent = line.out;
+              div.appendChild(o);
+            }
+            termBody.appendChild(div);
+            return div;
+          }
+          if (reduced) {
+            LINES.forEach(function (l) {
+              var d = addLine(l);
+              if (d._cmdSpan) { d._cmdSpan.textContent = l.cmd; }
+            });
+            var lastDiv = document.createElement("div");
+            var lp = document.createElement("span");
+            lp.className = "prompt"; lp.textContent = "root@geekshub:~$ ";
+            lastDiv.appendChild(lp); lastDiv.appendChild(caret);
+            termBody.appendChild(lastDiv);
+          } else {
+            var li = 0;
+            function nextLine() {
+              if (li >= LINES.length) {
+                var d = document.createElement("div");
+                var p = document.createElement("span");
+                p.className = "prompt"; p.textContent = "root@geekshub:~$ ";
+                d.appendChild(p); d.appendChild(caret);
+                termBody.appendChild(d);
+                return;
+              }
+              var line = LINES[li++];
+              var div = addLine(line);
+              if (line.type && div._cmdSpan) {
+                var text = line.cmd, ci = 0;
+                div.appendChild(caret);
+                var typer = setInterval(function () {
+                  div._cmdSpan.textContent = text.slice(0, ++ci);
+                  if (ci >= text.length) {
+                    clearInterval(typer);
+                    setTimeout(nextLine, 260);
+                  }
+                }, 34);
+              } else {
+                setTimeout(nextLine, 340);
+              }
+            }
+            /* start typing when the terminal scrolls into view */
+            if ("IntersectionObserver" in window) {
+              var seen = false;
+              var io = new IntersectionObserver(function (entries) {
+                if (entries[0].isIntersecting && !seen) { seen = true; nextLine(); io.disconnect(); }
+              }, { threshold: 0.3 });
+              io.observe(termBody);
+            } else { nextLine(); }
+          }
+        }
+
+        /* ---- live New York clock + next transmission countdown ---- */
+        var nyClock = document.getElementById("nyClock");
+        var nextIn = document.getElementById("nextIn");
+        var slots = Array.prototype.slice.call(document.querySelectorAll(".slot"));
+        var slotTimes = slots.map(function (s) {
+          var p = s.getAttribute("data-et").split(":");
+          return { el: s, h: parseInt(p[0], 10), m: parseInt(p[1], 10) };
+        });
+
+        function nyNow() {
+          /* current wall-clock time in America/New_York, as a Date in local terms */
+          var s = new Date().toLocaleString("en-US", { timeZone: "America/New_York" });
+          return new Date(s);
+        }
+        function fmtClock(d) {
+          var h = d.getHours(), m = d.getMinutes(), s = d.getSeconds();
+          var ap = h >= 12 ? "PM" : "AM"; h = h % 12 || 12;
+          function p2(n) { return (n < 10 ? "0" : "") + n; }
+          return h + ":" + p2(m) + ":" + p2(s) + " " + ap + " ET";
+        }
+        function tickClock() {
+          var now = nyNow();
+          if (nyClock) { nyClock.textContent = fmtClock(now); }
+          var best = null, bestDiff = Infinity;
+          slotTimes.forEach(function (st) {
+            var t = new Date(now.getTime());
+            t.setHours(st.h, st.m, 0, 0);
+            var diff = t - now;
+            if (diff <= 0) { diff += 24 * 60 * 60 * 1000; }
+            if (diff < bestDiff) { bestDiff = diff; best = st; }
+          });
+          slots.forEach(function (s) { s.classList.remove("next"); });
+          if (best) {
+            best.el.classList.add("next");
+            var totalMin = Math.floor(bestDiff / 60000);
+            var hh = Math.floor(totalMin / 60), mm = totalMin % 60;
+            if (nextIn) {
+              nextIn.textContent = (hh > 0 ? hh + "h " : "") + mm + "m — " +
+                best.el.querySelector(".when").firstChild.textContent.trim();
+            }
+          }
+        }
+        tickClock();
+        setInterval(tickClock, 1000);
+      })();
+    </script>
+  </body>
+</html>

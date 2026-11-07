@@ -1,0 +1,500 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Privacy Policy for Geeks Hub — how Geeks Hub handles information across its Facebook Page, YouTube channel, TikTok account, and the platform APIs it uses to publish its own videos." />
+    <link rel="icon" href="data:," />
+    <title>Geeks Hub Privacy Policy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #f6f8f7;
+        --surface: #ffffff;
+        --surface-2: #eef3f0;
+        --ink: #15211b;
+        --ink-2: #43554b;
+        --ink-3: #68796f;
+        --line: #d9e2dc;
+        --green: #0d7a3e;
+        --green-soft: #e3f2e8;
+        --blue: #0f5fa8;
+        --blue-soft: #e4eef8;
+        --focus: #0d7a3e;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0a0e0c;
+          --surface: #111713;
+          --surface-2: #161e19;
+          --ink: #e8f0ea;
+          --ink-2: #b3c4b9;
+          --ink-3: #84968a;
+          --line: #26332a;
+          --green: #4cc97e;
+          --green-soft: #142a1e;
+          --blue: #6cb3f0;
+          --blue-soft: #16283d;
+          --focus: #4cc97e;
+        }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "IBM Plex Sans", -apple-system, "Segoe UI", Roboto, sans-serif;
+        font-size: 17px;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+      a { color: var(--blue); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+      a:hover { text-decoration-thickness: 2px; }
+      a:focus-visible, button:focus-visible {
+        outline: 2px solid var(--focus);
+        outline-offset: 3px;
+        border-radius: 2px;
+      }
+      .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
+
+      /* ---------- Masthead ---------- */
+      .masthead {
+        border-bottom: 1px solid var(--line);
+        background: var(--surface);
+      }
+      .masthead-inner { padding: 34px 0 30px; }
+      .brand-row {
+        display: flex; align-items: center; gap: 12px;
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
+        color: var(--ink-2);
+      }
+      .brand-mark {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 30px; height: 30px; border-radius: 7px;
+        background: var(--green); color: #fff;
+        font-family: "IBM Plex Mono", monospace; font-weight: 600; font-size: 14px;
+        letter-spacing: 0; flex: none;
+      }
+      @media (prefers-color-scheme: dark) { .brand-mark { color: #06130b; } }
+      .brand-row .sep { color: var(--ink-3); }
+      h1 {
+        margin: 20px 0 0;
+        font-size: clamp(34px, 6vw, 52px);
+        line-height: 1.08; font-weight: 700; letter-spacing: -0.02em;
+      }
+      .lede {
+        margin: 16px 0 0; max-width: 42em;
+        font-size: 19px; line-height: 1.55; color: var(--ink-2);
+      }
+      .meta-row {
+        display: flex; flex-wrap: wrap; gap: 10px 26px;
+        margin-top: 22px;
+        font-family: "IBM Plex Mono", ui-monospace, monospace;
+        font-size: 13px; color: var(--ink-2);
+      }
+      .meta-row b { color: var(--ink); font-weight: 600; }
+
+      /* ---------- At a glance ---------- */
+      .glance {
+        margin: 30px 0 8px;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 24px 26px 8px;
+      }
+      .glance h2 {
+        margin: 0 0 6px; font-size: 15px;
+        font-family: "IBM Plex Mono", monospace; font-weight: 600;
+        letter-spacing: .12em; text-transform: uppercase; color: var(--green);
+      }
+      .glance-grid {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 4px 34px;
+        list-style: none; margin: 10px 0 14px; padding: 0;
+      }
+      .glance-grid li {
+        position: relative; padding: 8px 0 8px 30px;
+        border-top: 1px solid var(--line);
+        font-size: 15.5px; line-height: 1.5; color: var(--ink-2);
+      }
+      .glance-grid li:first-child, .glance-grid li:nth-child(2) { border-top: none; }
+      .glance-grid li b { color: var(--ink); font-weight: 600; }
+      .glance-grid svg {
+        position: absolute; left: 0; top: 12px;
+        width: 19px; height: 19px; color: var(--green); flex: none;
+      }
+
+      /* ---------- Contents ---------- */
+      .toc { margin: 34px 0 6px; }
+      .toc h2 {
+        margin: 0 0 12px; font-size: 15px;
+        font-family: "IBM Plex Mono", monospace; font-weight: 600;
+        letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3);
+      }
+      .toc ol {
+        list-style: none; margin: 0; padding: 0;
+        display: grid; grid-template-columns: 1fr 1fr; gap: 2px 34px;
+        counter-reset: toc;
+      }
+      .toc li { border-top: 1px solid var(--line); }
+      .toc a {
+        display: flex; gap: 12px; align-items: baseline;
+        padding: 9px 2px; color: var(--ink); text-decoration: none; font-size: 15.5px;
+      }
+      .toc a:hover { color: var(--green); }
+      .toc a .n {
+        font-family: "IBM Plex Mono", monospace; font-size: 12.5px;
+        color: var(--green); font-weight: 600; min-width: 22px;
+      }
+
+      /* ---------- Sections ---------- */
+      main .wrap { padding-bottom: 10px; }
+      section.policy { padding: 30px 0 6px; scroll-margin-top: 16px; }
+      section.policy + section.policy { border-top: 1px solid var(--line); margin-top: 22px; }
+      section.policy h2 {
+        display: flex; gap: 14px; align-items: baseline;
+        margin: 0 0 12px; font-size: 24px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.25;
+      }
+      section.policy h2 .n {
+        font-family: "IBM Plex Mono", monospace; font-size: 15px; font-weight: 600;
+        color: var(--green);
+      }
+      section.policy h3 {
+        margin: 22px 0 6px; font-size: 17.5px; font-weight: 600;
+      }
+      section.policy p { margin: 0 0 12px; color: var(--ink-2); max-width: 44em; }
+      section.policy p b, section.policy li b { color: var(--ink); }
+      section.policy ul { margin: 0 0 14px; padding-left: 22px; color: var(--ink-2); max-width: 44em; }
+      section.policy li { margin-bottom: 7px; }
+      section.policy li::marker { color: var(--green); }
+      .callout {
+        background: var(--blue-soft);
+        border-radius: 10px;
+        padding: 16px 18px; margin: 14px 0 16px; max-width: 44em;
+      }
+      .callout p { margin: 0; font-size: 15.5px; }
+      .callout p + p { margin-top: 8px; }
+
+      /* ---------- Contact / footer ---------- */
+      .contact-card {
+        background: var(--surface); border: 1px solid var(--line);
+        border-radius: 12px; padding: 22px 26px; margin: 6px 0 0; max-width: 44em;
+      }
+      .contact-card p { margin: 0 0 10px; }
+      .contact-card p:last-child { margin-bottom: 0; }
+      footer {
+        border-top: 1px solid var(--line); margin-top: 44px;
+        background: var(--surface);
+      }
+      .foot-inner {
+        padding: 24px 0 34px;
+        display: flex; flex-wrap: wrap; gap: 8px 26px; align-items: baseline;
+        font-size: 14px; color: var(--ink-3);
+      }
+      .foot-inner .brand {
+        font-family: "IBM Plex Mono", monospace; font-weight: 600;
+        letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); font-size: 13px;
+      }
+
+      @media (max-width: 640px) {
+        body { font-size: 16px; }
+        .glance-grid, .toc ol { grid-template-columns: 1fr; }
+        .glance-grid li:nth-child(2) { border-top: 1px solid var(--line); }
+        .glance { padding: 20px 18px 4px; }
+        .contact-card { padding: 18px; }
+        section.policy h2 { font-size: 21px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+      }
+      @media print {
+        body { background: #fff; color: #000; font-size: 12.5pt; }
+        .toc { display: none; }
+        section.policy + section.policy { border-top: none; }
+        a { color: #000; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <header class="masthead">
+      <div class="wrap masthead-inner">
+        <div class="brand-row">
+          <span class="brand-mark" aria-hidden="true">&gt;_</span>
+          <span>Geeks Hub</span>
+          <span class="sep" aria-hidden="true">/</span>
+          <span>Legal</span>
+        </div>
+        <h1>Privacy Policy</h1>
+        <p class="lede">
+          Geeks Hub publishes short technology and cybersecurity videos on Facebook
+          and YouTube, and is expanding to TikTok. This policy explains what information is involved when
+          you watch, follow, comment on, or message us — and how we use the platform
+          APIs that publish our own videos to our own accounts.
+        </p>
+        <div class="meta-row">
+          <span>Effective: <b>November 6, 2026</b></span>
+          <span>Last updated: <b>November 6, 2026</b></span>
+          <span>Applies to: <b>Geeks Hub on Facebook, YouTube &amp; TikTok</b></span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrap">
+
+        <div class="glance" aria-label="Summary of this policy">
+          <h2>At a glance</h2>
+          <ul class="glance-grid">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <b>We publish our own content.</b> Our software and API access are used only to post Geeks Hub videos to Geeks Hub accounts.
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <b>We do not sell personal data</b> — and we do not buy it, rent it, or trade it with data brokers.
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <b>No accounts, forms, or sign-ups here.</b> This page collects nothing from you when you read it.
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <b>Your interactions live on the platforms.</b> Comments, likes, and messages are handled by Facebook, YouTube, and TikTok under their own privacy policies.
+            </li>
+          </ul>
+        </div>
+
+        <nav class="toc" aria-label="Contents">
+          <h2>Contents</h2>
+          <ol>
+            <li><a href="#who-we-are"><span class="n">01</span>Who we are</a></li>
+            <li><a href="#scope"><span class="n">02</span>What this policy covers</a></li>
+            <li><a href="#information"><span class="n">03</span>Information we receive</a></li>
+            <li><a href="#how-we-use"><span class="n">04</span>How we use information</a></li>
+            <li><a href="#apis"><span class="n">05</span>How we use platform APIs</a></li>
+            <li><a href="#sharing"><span class="n">06</span>Sharing of information</a></li>
+            <li><a href="#retention"><span class="n">07</span>Retention &amp; security</a></li>
+            <li><a href="#your-choices"><span class="n">08</span>Your choices &amp; rights</a></li>
+            <li><a href="#children"><span class="n">09</span>Children&rsquo;s privacy</a></li>
+            <li><a href="#changes"><span class="n">10</span>Changes to this policy</a></li>
+            <li><a href="#contact"><span class="n">11</span>Contact us</a></li>
+          </ol>
+        </nav>
+
+        <section class="policy" id="who-we-are">
+          <h2><span class="n">01</span>Who we are</h2>
+          <p>
+            <b>Geeks Hub</b> is a technology media project that produces short-form videos about
+            cybersecurity, vulnerabilities (CVEs), hacks, tips, tricks, and artificial
+            intelligence news. Geeks Hub operates a Facebook Page named &ldquo;Geeks Hub&rdquo;,
+            a YouTube channel at
+            <a href="https://youtube.com/@g33ks-hub?si=WITg_uAS3uoJfbc1" target="_blank" rel="noopener">youtube.com/@g33ks-hub</a>,
+            and is bringing the same brand to TikTok. In this policy, &ldquo;we&rdquo;,
+            &ldquo;us&rdquo;, and &ldquo;our&rdquo; mean the Geeks Hub project and the people who run it.
+          </p>
+        </section>
+
+        <section class="policy" id="scope">
+          <h2><span class="n">02</span>What this policy covers</h2>
+          <p>
+            This policy covers the Geeks Hub pages, channels, and accounts listed above,
+            this privacy policy page itself, and the publishing tools and platform APIs
+            we use to post our videos. It does <b>not</b> govern Facebook, YouTube, TikTok,
+            or Google themselves: when you use those services, your information is also
+            handled under each platform&rsquo;s own privacy policy and terms, which we
+            encourage you to read.
+          </p>
+        </section>
+
+        <section class="policy" id="information">
+          <h2><span class="n">03</span>Information we receive</h2>
+          <p>Geeks Hub is a content publisher, not a data service. The information that reaches us falls into four narrow categories:</p>
+          <h3>Information you choose to share publicly or with us</h3>
+          <ul>
+            <li><b>Public interactions</b> — your name or handle, profile picture, comments, reactions, and shares on our posts and videos. These are visible to us and, depending on your platform settings, to other viewers.</li>
+            <li><b>Messages</b> — if you send us a direct message through one of our pages or channels, we receive the content of that message and the account you sent it from.</li>
+          </ul>
+          <h3>Aggregated insights from the platforms</h3>
+          <p>
+            Facebook, YouTube, and TikTok provide us with audience analytics about our own
+            content — for example view counts, watch time, and aggregated audience
+            demographics such as country-level location and age ranges. These insights
+            are aggregated statistics provided by the platforms; they do not identify
+            individual viewers to us.
+          </p>
+          <h3>Access credentials for our own accounts</h3>
+          <p>
+            To publish automatically, we hold access tokens and API credentials that belong
+            to <b>Geeks Hub&rsquo;s own accounts only</b>. These credentials let our publishing
+            tools upload videos, set titles and captions, and read our own content&rsquo;s
+            performance. They do not give us access to your account, your videos, or your
+            personal data, and we never ask viewers for their passwords or credentials.
+          </p>
+          <h3>This page</h3>
+          <p>
+            This privacy policy page is a static document. It has no accounts, no forms,
+            no comment system, and sets no tracking cookies. We do not run analytics on it.
+          </p>
+        </section>
+
+        <section class="policy" id="how-we-use">
+          <h2><span class="n">04</span>How we use information</h2>
+          <p>We use the information described above only to:</p>
+          <ul>
+            <li>Publish, schedule, and manage Geeks Hub videos on our own accounts;</li>
+            <li>Respond to comments and messages you send us;</li>
+            <li>Understand which topics our audience finds useful, so we can plan future episodes;</li>
+            <li>Keep our accounts and publishing tools secure and working correctly; and</li>
+            <li>Comply with the rules of the platforms we publish on and with applicable law.</li>
+          </ul>
+          <p>
+            We do <b>not</b> use information to build profiles of individual viewers, to serve
+            targeted advertising of our own, or for automated decision-making about you.
+          </p>
+        </section>
+
+        <section class="policy" id="apis">
+          <h2><span class="n">05</span>How we use platform APIs</h2>
+          <p>
+            Geeks Hub uses official developer APIs to publish its own videos to its own
+            accounts — the Meta integration below is in use today, and the YouTube and
+            TikTok integrations are being connected under this same policy. Our use of
+            each API is limited to that purpose:
+          </p>
+          <h3>YouTube API Services (Google)</h3>
+          <p>
+            We use YouTube API Services to upload Geeks Hub videos to the Geeks Hub YouTube
+            channel and to manage that channel&rsquo;s own content (titles, descriptions, and
+            publishing status). Our use of information received from Google APIs adheres to
+            the <b>Google API Services User Data Policy, including the Limited Use
+            requirements</b>. Specifically:
+          </p>
+          <ul>
+            <li>API access is used solely to publish and manage our own channel&rsquo;s content;</li>
+            <li>We do not collect, request, or store personal data of YouTube viewers through the API;</li>
+            <li>We do not sell, rent, or transfer Google user data to anyone, and we do not use it for advertising;</li>
+            <li>Access tokens are stored securely, are accessible only to the people who operate Geeks Hub, and are revoked when no longer needed.</li>
+          </ul>
+          <p>By using our YouTube channel you also agree to be bound by the YouTube Terms of Service, and Google&rsquo;s handling of your data is described in the Google Privacy Policy.</p>
+          <h3>Meta / Facebook</h3>
+          <p>
+            We use Meta&rsquo;s developer platform and Graph API to publish Reels and posts to
+            the Geeks Hub Facebook Page and to read that Page&rsquo;s own insights. We access
+            only data belonging to the Geeks Hub Page, in accordance with Meta&rsquo;s Platform
+            Terms and Developer Policies.
+          </p>
+          <h3>TikTok</h3>
+          <p>
+            Subject to TikTok&rsquo;s review and approval of our developer app, we use
+            TikTok&rsquo;s Content Posting API to post Geeks Hub videos to the Geeks Hub
+            TikTok account. We access only our own account&rsquo;s data, in accordance with
+            TikTok&rsquo;s Developer Terms of Service and the permissions TikTok grants our app.
+          </p>
+          <div class="callout">
+            <p><b>The short version:</b> every API we use points at our own accounts and our own videos. None of them is used to access, collect, or process information about our viewers.</p>
+          </div>
+        </section>
+
+        <section class="policy" id="sharing">
+          <h2><span class="n">06</span>Sharing of information</h2>
+          <p>
+            We do not sell, rent, or trade personal information. Information is shared only
+            in these limited situations:
+          </p>
+          <ul>
+            <li><b>With the platforms themselves</b> — publishing a video necessarily sends that video and its caption to Facebook, YouTube, or TikTok, which process it under their own policies;</li>
+            <li><b>Publicly, by design</b> — comments and reactions you post on our content are public on the platform where you posted them;</li>
+            <li><b>For legal reasons</b> — if we are required by law, or to protect the safety and rights of Geeks Hub or others, we may disclose information we hold.</li>
+          </ul>
+        </section>
+
+        <section class="policy" id="retention">
+          <h2><span class="n">07</span>Retention &amp; security</h2>
+          <p>
+            Comments and messages remain on the platforms where you posted them, under
+            those platforms&rsquo; retention rules, until you delete them or the content is
+            removed. We keep API credentials and publishing records only for as long as
+            they are needed to operate Geeks Hub, store them in access-controlled
+            credential storage rather than in plain documents or chats, and revoke or
+            rotate them when they are no longer required.
+          </p>
+          <p>
+            No system is perfectly secure, but we take reasonable technical and
+            organizational measures to protect the credentials and information under
+            our control against unauthorized access, loss, or misuse.
+          </p>
+        </section>
+
+        <section class="policy" id="your-choices">
+          <h2><span class="n">08</span>Your choices &amp; rights</h2>
+          <ul>
+            <li><b>Control your interactions:</b> you can edit or delete your comments, and delete messages you sent us, at any time inside Facebook, YouTube, or TikTok.</li>
+            <li><b>Unfollow or block:</b> you can unfollow, unsubscribe from, or block Geeks Hub on any platform at any time.</li>
+            <li><b>Ask us:</b> you may contact us (see Section 11) to ask what information of yours we hold outside the platforms — in practice this is limited to messages you sent us — and to request its deletion. We will respond within a reasonable time.</li>
+            <li><b>Platform settings:</b> your broader privacy rights over data held by Google, Meta, and TikTok — including access, correction, and deletion — are exercised through those companies&rsquo; privacy settings and policies.</li>
+          </ul>
+          <p>
+            Depending on where you live, you may have additional rights under laws such as
+            the GDPR or the CCPA. The commitments above — no sale of personal data, no
+            viewer profiling, and deletion on request of anything we ourselves hold — apply
+            to every viewer regardless of location.
+          </p>
+        </section>
+
+        <section class="policy" id="children">
+          <h2><span class="n">09</span>Children&rsquo;s privacy</h2>
+          <p>
+            Geeks Hub content is made for a general adult audience interested in technology
+            and cybersecurity. It is not directed at children under 13 (or the minimum age
+            required in your country), and we do not knowingly collect personal information
+            from children. If you believe a child has sent us personal information, contact
+            us and we will delete it.
+          </p>
+        </section>
+
+        <section class="policy" id="changes">
+          <h2><span class="n">10</span>Changes to this policy</h2>
+          <p>
+            We may update this policy when our practices or the platforms&rsquo; requirements
+            change. The current version will always be posted at this page, with the
+            &ldquo;Last updated&rdquo; date at the top revised accordingly. Material changes
+            will be reflected here before they take effect.
+          </p>
+        </section>
+
+        <section class="policy" id="contact">
+          <h2><span class="n">11</span>Contact us</h2>
+          <div class="contact-card">
+            <p>
+              Questions about this policy, or a request about your information, reach us fastest
+              by <b>direct message to the Geeks Hub Facebook Page</b>.
+            </p>
+            <p>
+              You can also reach the channel on YouTube:
+              <a href="https://youtube.com/@g33ks-hub?si=WITg_uAS3uoJfbc1" target="_blank" rel="noopener">youtube.com/@g33ks-hub</a>
+            </p>
+            <p>
+              Please never send us passwords, API keys, or other credentials — Geeks Hub will
+              never ask for them.
+            </p>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <footer>
+      <div class="wrap foot-inner">
+        <span class="brand">Geeks Hub</span>
+        <span>Privacy Policy — effective November 6, 2026</span>
+        <span>Facebook Page · YouTube @g33ks-hub</span>
+      </div>
+    </footer>
+
+  </body>
+</html>
